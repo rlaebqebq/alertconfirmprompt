@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useCheckLang } from 'component/lib/components/useCheckLang';
 
 interface Props {
   message: string;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const Prompt = ({ message, onClickOK, onClickCancel, options }: Props) => {
+  const lang = useCheckLang();
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -20,7 +22,6 @@ const Prompt = ({ message, onClickOK, onClickCancel, options }: Props) => {
     };
 
     document.addEventListener('keydown', handleEscape);
-
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClickCancel]);
 
@@ -44,14 +45,15 @@ const Prompt = ({ message, onClickOK, onClickCancel, options }: Props) => {
           type='text'
           defaultValue={options?.defaultValue}
           placeholder={options?.placeholder}
-          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
         />
         <div className='buttons'>
           <button type='button' className='cancel' onClick={onClickCancel}>
-            cancel
+            {lang === 'ko' ? 'Cancel' : 'OK'}
           </button>
-          <button type='submit'>ok</button>
+          <button type='submit' className='confirm'>
+            {lang === 'ko' ? '확인' : 'OK'}
+          </button>
         </div>
       </form>
     </div>

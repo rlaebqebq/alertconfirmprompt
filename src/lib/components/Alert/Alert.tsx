@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
-import type { AlertState } from "./AlertDialog";
+import type { AlertState } from './AlertDialog';
+import { useCheckLang } from 'component/lib/components/useCheckLang';
 
 const Alert = ({ message, onClose, options }: AlertState) => {
+  const lang = useCheckLang();
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -11,7 +13,6 @@ const Alert = ({ message, onClose, options }: AlertState) => {
     };
 
     document.addEventListener('keydown', handleEscape);
-
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
 
@@ -22,9 +23,8 @@ const Alert = ({ message, onClose, options }: AlertState) => {
         {options?.title && <h2 className='title'>{options.title}</h2>}
         <div className='text'>{message}</div>
         <div className='buttons'>
-          {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-          <button type='button' onClick={onClose} autoFocus>
-            ok
+          <button type='button' className='confirm' onClick={onClose} autoFocus>
+            {lang === 'ko' ? '확인' : 'OK'}
           </button>
         </div>
       </div>

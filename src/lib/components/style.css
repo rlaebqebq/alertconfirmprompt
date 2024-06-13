@@ -69,7 +69,6 @@
     cursor: pointer;
     padding: 12px 16px;
     border-radius: 4px;
-    text-transform: uppercase;
     font-weight: 700;
     opacity: 1;
     transition: opacity 0.1s cubic-bezier(0.4, 0, 0.6, 1) 0s;
@@ -79,13 +78,13 @@
     opacity: 0.7;
 }
 
-.dialog-container > .dialog > .buttons button[type='button'] {
+.dialog-container > .dialog > .buttons button.cancel {
     background-color: transparent;
     color: rgb(0, 114, 246);
     border: 1px solid rgb(0, 114, 246);
 }
 
-.dialog-container > .dialog > .buttons button[type='submit'] {
+.dialog-container > .dialog > .buttons button.confirm {
     background-color: rgb(0, 114, 246);
     color: rgb(248, 249, 250);
     border: transparent;

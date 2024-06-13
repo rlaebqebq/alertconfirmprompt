@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import type { AlertState } from './AlertDialog';
-import { useCheckLang } from 'component/lib/components/useCheckLang';
+import { useCheckLang } from '../useCheckLang';
 
 const Alert = ({ message, onClose, options }: AlertState) => {
   const lang = useCheckLang();

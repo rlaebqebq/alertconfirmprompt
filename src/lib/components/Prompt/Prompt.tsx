@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useCheckLang } from 'component/lib/components/useCheckLang';
+import { FormEvent, useEffect } from 'react';
+import { useCheckLang } from '../useCheckLang';
 
 interface Props {
   message: string;
@@ -25,7 +25,7 @@ const Prompt = ({ message, onClickOK, onClickCancel, options }: Props) => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClickCancel]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       input: { value: string };

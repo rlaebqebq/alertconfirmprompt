@@ -1,32 +1,28 @@
 "use strict";
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
-_Object$defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var _promise = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/promise"));
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/slicedToArray"));
+exports.default = void 0;
 var _react = require("react");
 var _Prompt = _interopRequireDefault(require("./Prompt"));
 var _PromptContext = _interopRequireDefault(require("./PromptContext"));
 var _jsxRuntime = require("react/jsx-runtime");
-var PromptDialog = function PromptDialog(_ref) {
-  var children = _ref.children;
-  var _useState = (0, _react.useState)(),
-    _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
-    state = _useState2[0],
-    setState = _useState2[1];
-  var prompt = (0, _react.useCallback)(function (message, options) {
-    return new _promise["default"](function (resolve) {
+const PromptDialog = _ref => {
+  let {
+    children
+  } = _ref;
+  const [state, setState] = (0, _react.useState)();
+  const prompt = (0, _react.useCallback)((message, options) => {
+    return new Promise(resolve => {
       setState({
         message: message !== null && message !== void 0 ? message : '',
-        onClickOK: function onClickOK(result) {
+        onClickOK: result => {
           setState(undefined);
           resolve(result);
         },
-        onClickCancel: function onClickCancel() {
+        onClickCancel: () => {
           setState(undefined);
           resolve(null);
         },
@@ -38,13 +34,11 @@ var PromptDialog = function PromptDialog(_ref) {
       });
     });
   }, []);
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_PromptContext["default"].Provider, {
-    value: (0, _react.useMemo)(function () {
-      return {
-        prompt: prompt
-      };
-    }, [prompt]),
-    children: [children, state && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Prompt["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_PromptContext.default.Provider, {
+    value: (0, _react.useMemo)(() => ({
+      prompt
+    }), [prompt]),
+    children: [children, state && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Prompt.default, {
       message: state.message,
       onClickOK: state.onClickOK,
       onClickCancel: state.onClickCancel,
@@ -52,4 +46,4 @@ var PromptDialog = function PromptDialog(_ref) {
     })]
   });
 };
-var _default = exports["default"] = PromptDialog;
+var _default = exports.default = PromptDialog;

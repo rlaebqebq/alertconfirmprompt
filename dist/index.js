@@ -1,18 +1,17 @@
 "use strict";
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
-_Object$defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-_Object$defineProperty(exports, "AlertConfirmPromptProvider", {
+Object.defineProperty(exports, "AlertConfirmPromptProvider", {
   enumerable: true,
-  get: function get() {
+  get: function () {
     return _components.AlertConfirmPromptProvider;
   }
 });
-_Object$defineProperty(exports, "useAlertConfirmPrompt", {
+Object.defineProperty(exports, "useAlertConfirmPrompt", {
   enumerable: true,
-  get: function get() {
+  get: function () {
     return _components.useAlertConfirmPrompt;
   }
 });

@@ -1,5 +1,5 @@
-/// <reference types="react" />
+import { ReactNode } from 'react';
 declare const ConfirmDialog: ({ children }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) => import("react").JSX.Element;
 export default ConfirmDialog;

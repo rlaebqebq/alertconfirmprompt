@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useCheckLang } from 'component/lib/components/useCheckLang';
+import { useCheckLang } from '../useCheckLang';
 
 interface Props {
   message: string;

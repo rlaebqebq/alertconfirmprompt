@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 import Confirm from './Confirm';
 import ConfirmContext from './ConfirmContext';
 
@@ -11,7 +11,7 @@ type ConfirmState = {
   };
 };
 
-const ConfirmDialog = ({ children }: { children: React.ReactNode }) => {
+const ConfirmDialog = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<ConfirmState>();
 
   const confirm = useCallback((message?: string, options?: { title?: string }): Promise<boolean> => {

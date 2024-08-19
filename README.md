@@ -1,10 +1,22 @@
-AlertConfirmPromptProvider 로 감싸기
+## 사용법
 
 ```javascript
-const { alert, confirm, prompt } = useAlertConfirmPrompt();
+// Provider.tsx
+const Provider = ({ children }: { children: ReactNode }) => {
+  return <AlertConfirmPromptProvider>{children}</AlertConfirmPromptProvider>
+}
+```
 
-onClick={async () => {
-  const result = await alert('what is your name?', { title: 'sdf' });
-  console.log('custom', result);
-}}
+```javascript
+// Component.tsx
+const Component = () => {
+  const { alert, confirm, prompt } = useAlertConfirmPrompt();
+
+  const handleClick = async() => {
+    const result = await alert('what is your name?', { title: 'sdf' });
+    console.log('custom', result);
+  }
+
+  return <button type='button' onClick={handleClick}>alert</button>;
+}
 ```

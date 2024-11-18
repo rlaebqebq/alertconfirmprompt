@@ -1,3 +1,5 @@
+# private alert, confirm, prompt npm
+
 ## 사용법
 
 ```javascript
